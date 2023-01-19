@@ -1,0 +1,61 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage{tabularx}
+\usepackage{eurosym}
+\usepackage{amsmath, amssymb}
+
+\usepackage[a4paper,left=1.5cm,right=1.5cm,top=2cm,bottom=2cm,
+  %includehead,
+  %includefoot,
+  %heightrounded, % to avoid spurious underfull messages
+  ]{geometry}
+
+\newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}% Fill this blank
+%\newcommand{\uu}{\uline{1cm}\,}
+\newcommand{\uu}{ \hrulefill\ }
+\newcommand{\EURO}{\text{\euro}}
+\newcommand{\CENT}{ct}
+
+\begin{document}
+\section*{Rechenjause}
+\vspace{0.5cm}
+\noindent
+\uline{5cm}\\\\
+\noindent
+\setlength{\extrarowheight}{3pt}
+\begin{tabularx}{\textwidth}{ @{} X X X X @{} }
+%   row 1
+%
+  Verdopple 88!\uu
+& $16\dot{4}5 \sim$ \uu
+& 3m 8cm =\uu
+& $3\cdot4=$ \uu
+%
+\\% row 2
+%
+$7\ \cdot$\uu$=560$
+& $800-280+9=$\uu
+& 127\EURO\ 27\CENT\ =\uu
+& 3cm 7mm =\uu
+%
+\\% row 3
+%
+  Halbiere 430!\uu
+& Würfel: F oder K 
+& 7 Wochen = \uu Tage
+& 1min - 35s =\uu s
+%
+\\% row 4
+%
+\uu$\mathpunct{:}$\uu = 5 R6
+& $600-51+80=$\uu
+& 6 Jahre =\uu Monate
+& 3min -\uu s = 140s
+% 
+\\% row 5
+%
+$700=$\uu$\cdot\ 200+100$
+& Dreieck: F oder K
+& 24min+\uu min = 2h
+& $137\EURO+$\uu$\EURO=500\EURO$
+\end{tabularx}
+\end{document}
