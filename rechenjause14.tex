@@ -9,53 +9,159 @@
   %heightrounded, % to avoid spurious underfull messages
   ]{geometry}
 
+% FONT: Source Sans Pro
+%\usepackage[default]{sourcesanspro}
+%\usepackage[T1]{fontenc}
+% FONT: Source Sans Pro
+
 \newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}% Fill this blank
 %\newcommand{\uu}{\uline{1cm}\,}
 \newcommand{\uu}{ \hrulefill\ }
 \newcommand{\EURO}{\text{\euro}}
 \newcommand{\CENT}{ct}
 
+%\newcommand{\reverseconcat}[3]{#3#2#1} % version 1
+\newcommand{\FoderK}[1]{#1: F oder K}
+\newcommand{\Halbiere}[1]{Halbiere #1!\uu}
+
+%\newcommand{\LinieMitte}[2]{#1\uu#2}
+
+\newcommand{\EuroPlus}[2]{$#1\EURO+$\uu$\EURO=#2\EURO$}
+\newcommand{\EuroMinusResult}[2]{#1\EURO \textminus #2\EURO=\uu ,\uu \EURO}
+\newcommand{\Edm}[1]{E.d.M.! #1=\uu}
+\newcommand{\FindDiv}[2]{\uu$\mathpunct{:}$\uu = #1 R#2}
+\newcommand{\FindDividend}[3]{\uu$\mathpunct{:}$#1 = #2 R#3}
+\newcommand{\FindMul}[1]{\uu$\cdot$\uu = #1}
+\newcommand{\TextEqual}[2]{#1 =\uu #2}
+\newcommand{\MathResult}[1]{$#1=$\uu}
+\newcommand{\MathEqual}[2]{$#1=$\uu}
+\newcommand{\LineEnd}[1]{#1\uu}
+\newcommand{\LineMiddle}[2]{#1\uu#2}
+\newcommand{\LinesMiddle}[3]{#1\uu#2\uu#3}
+\newcommand{\Round}[1]{#1 $\sim$\uu}
+
 \begin{document}
-\section*{Rechenjause}
+\section*{\uline{2cm} . Rechenjause}
 \vspace{0.5cm}
 \noindent
-\uline{5cm}\\\\
-\noindent
 \setlength{\extrarowheight}{3pt}
-\begin{tabularx}{\textwidth}{ @{} X X X X @{} }
-%   row 1
+\begin{tabularx}{\textwidth}{ @{} X X X @{} }
+Datum: \hrulefill
+\\
 %
-  Verdopple 88!\uu
-& $16\dot{4}5 \sim$ \uu
-& 3m 8cm =\uu
-& $3\cdot4=$ \uu
+%   Montag - row 1
 %
-\\% row 2
+  \FoderK{Pyramide}
+& \Halbiere{560}
+& \EuroPlus{11,76}{100}
 %
-$7\ \cdot$\uu$=560$
-& $800-280+9=$\uu
-& 127\EURO\ 27\CENT\ =\uu
-& 3cm 7mm =\uu
+\\% Montag row 2
 %
-\\% row 3
+  \TextEqual{eine halbe Stunde}{min}
+& \Edm{460dag}
+& \LineMiddle{Quader:}{rechteckige Flächen}
+\\% Montag row 3
 %
-  Halbiere 430!\uu
-& Würfel: F oder K 
-& 7 Wochen = \uu Tage
-& 1min - 35s =\uu s
+  \TextEqual{9dm 2mm}{mm}
+& \FindDiv{9}{6}
+& \LineMiddle{Quader:}{Ecken}
 %
-\\% row 4
+\\% Montag row 4
 %
-\uu$\mathpunct{:}$\uu = 5 R6
-& $600-51+80=$\uu
-& 6 Jahre =\uu Monate
-& 3min -\uu s = 140s
-% 
-\\% row 5
+  \MathResult{770:2}
+& \TextEqual{3kg\textminus 27g}{g}
+& \FindMul{420}
 %
-$700=$\uu$\cdot\ 200+100$
-& Dreieck: F oder K
-& 24min+\uu min = 2h
-& $137\EURO+$\uu$\EURO=500\EURO$
+\\% Montag row 5
+%
+  \MathResult{5\cdot3+300-90}
+& \TextEqual{4g 98dag}{g}
+& \LineMiddle{382dag +}{dag = 9kg}
+\\
+\\ Datum: \hrulefill
+%
+\\% Dienstag row 1
+%
+  \LineMiddle{4:29 Uhr /}{Uhr}
+& \TextEqual{4h\textminus 28min}{min}
+& \FindDiv{7}{5}
+%
+\\% Dienstag row 2
+%
+  \EuroPlus{31,29}{200}
+& \LineMiddle{86s +}{s = 3min}
+& \LineMiddle{4:06 bis 4:53 Uhr:}{min}
+%
+\\% Dienstag row 3
+%
+  \Round{R.a.ZT! 84 076}
+& \MathResult{100\ 000-80}
+& \LineMiddle{eine dreiviertel Minute:}{s}
+%
+\\% Dienstag row 4
+%
+  \LineMiddle{12 Jahre =}{Monate}
+& \LineMiddle{4min\textminus}{s = 150s}
+& \LineMiddle{4min 58s =}{s}
+%
+\\% Dienstag row 5
+%
+  \LineMiddle{24min +}{min = 2h}
+& \LineMiddle{13h}{min}
+& \LineMiddle{2min\textminus}{s = 87s}
+\\
+\\ Datum: \hrulefill
+%
+\\% Mittwoch row 1
+%
+  \EuroPlus{52,68}{200}
+& \FindDiv{5}{2}
+& \LinesMiddle{81 Tage=}{Wochen}{Tage}
+%
+\\% Mittwoch row 2
+%
+  \LineMiddle{Rechteck:}{Symetrieachsen}
+& \EuroMinusResult{8}{3,98}
+& \LinesMiddle{9H\textminus 3H 7Z=}{H}{Z}
+%
+\\% Mittwoch row 3
+%
+  \FindMul{720}
+& \MathResult{700-140-8}
+& \FoderK{Rechteck}
+%%
+\\% Mittwoch row 4
+%
+  \LineMiddle{eine dreiviertel Stunde:}{min}
+& \LineMiddle{767g+}{g = 5kg}
+& \EuroMinusResult{1}{0,91}
+%
+\\% Mittwoch row 5
+%
+  \FoderK{Kugel}
+& \Halbiere{650}
+& \LineMiddle{7dag 6kg =}{dag}
+\\
+\\ Datum: \hrulefill
+%
+\\% Donnerstag row 1
+%
+  \FoderK{Kreis}
+& \LineMiddle{34g +}{g = 8kg}
+& \LineMiddle{Würfel:}{quadratische Flächen}
+%
+\\% Donnerstag row 2
+%
+  \FindDiv{6}{4}
+& \LineMiddle{16dag +}{dag =1 kg}
+& \EuroPlus{31,74}{500}
+%
+\\% Donnerstag row 3
+%
+  \FindDividend{6}{8}{5}
+& \LineMiddle{2kg\textminus}{g = 560g}
+& \MathResult{9\cdot 70+4\cdot 4}
 \end{tabularx}
+
+
 \end{document}
