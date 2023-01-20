@@ -14,6 +14,9 @@
 %\usepackage[T1]{fontenc}
 % FONT: Source Sans Pro
 
+\usepackage[T1]{fontenc}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
 \newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}% Fill this blank
 %\newcommand{\uu}{\uline{1cm}\,}
 \newcommand{\uu}{ \hrulefill\ }
@@ -25,7 +28,8 @@
 
 %\newcommand{\LinieMitte}[2]{#1\uu#2}
 
-\newcommand{\EuroPlus}[2]{$#1\EURO+$\uu$\EURO=#2\EURO$}
+%\newcommand{\EuroPlus}[2]{$#1\EURO+$\uu$\EURO=#2\EURO$}
+\newcommand{\EuroPlus}[2]{#1\EURO+\uu\EURO=#2\EURO}
 \newcommand{\EuroMinusResult}[2]{#1\EURO \textminus #2\EURO=\uu ,\uu \EURO}
 \newcommand{\Edm}[1]{E.d.M.! #1=\uu}
 \newcommand{\FindDiv}[2]{\uu$\mathpunct{:}$\uu = #1 R#2}
@@ -40,6 +44,9 @@
 \newcommand{\LinesMiddle}[3]{#1\uu#2\uu#3}
 \newcommand{\Round}[1]{#1 $\sim$\uu}
 \newcommand{\ClockConvert}[1]{\LineMiddle{#1 Uhr /}{Uhr}}
+\newcommand{\PlusMiddle}[2]{#1 +\uu#2}
+\newcommand{\MinusMiddle}[2]{#1 \textminus\uu#2}
+\newcommand{\ColonMiddle}[2]{#1:\uu#2}
 
 \newcommand{\jauseday}[1]{
 	\noindent
@@ -56,161 +63,48 @@
 }
 
 \newcommand{\jauseMonday}{\jauseday{
-%
-%   Montag - row 1
-%
-  \FoderK{Pyramide}
-& \Halbiere{560}
-& \EuroPlus{11,76}{100}
-%
-\\% Montag row 2
-%
-  \TextEqual{eine halbe Stunde}{min}
-& \Edm{460dag}
-& \LineMiddle{Quader:}{rechteckige Flächen}
-\\% Montag row 3
-%
-  \TextEqual{9dm 2mm}{mm}
-& \FindDiv{9}{6}
-& \LineMiddle{Quader:}{Ecken}
-%
-\\% Montag row 4
-%
-  \MathResult{770:2}
-& \TextEqual{3kg\textminus 27g}{g}
-& \FindMul{420}
-%
-\\% Montag row 5
-%
-  \MathResult{5\cdot3+300-90}
-& \TextEqual{4g 98dag}{g}
-& \LineMiddle{382dag +}{dag = 9kg}
+   \FoderK{Pyramide} 						& \Halbiere{560} 					& \EuroPlus{11,76}{100}
+\\ \TextEqual{eine halbe Stunde}{min} 		& \Edm{460dag} 						& \ColonMiddle{Quader}{rechteckige Flächen}
+\\ \TextEqual{9dm 2mm}{mm} 					& \FindDiv{9}{6}					& \ColonMiddle{Quader}{Ecken}
+\\ \MathResult{770:2} 						& \TextEqual{3kg\textminus 27g}{g}	& \FindMul{420}
+\\ \MathResult{5\cdot3+300-90} 				& \TextEqual{4g 98dag}{g} 			& \PlusMiddle{382dag}{dag = 9kg}
 }}
 
 \newcommand{\jauseTuesday}{\jauseday{
-%
-% Dienstag row 1
-%
-  \ClockConvert{4:29}
-& \TextEqual{4h\textminus 28min}{min}
-& \FindDiv{7}{5}
-%
-\\% Dienstag row 2
-%
-  \EuroPlus{31,29}{200}
-& \LineMiddle{86s +}{s = 3min}
-& \LineMiddle{4:06 bis 4:53 Uhr:}{min}
-%
-\\% Dienstag row 3
-%
-  \Round{R.a.ZT! 84 076}
-& \MathResult{100\ 000-80}
-& \LineMiddle{eine dreiviertel Minute:}{s}
-%
-\\% Dienstag row 4
-%
-  \LineMiddle{12 Jahre =}{Monate}
-& \LineMiddle{4min\textminus}{s = 150s}
-& \LineMiddle{4min 58s =}{s}
-%
-\\% Dienstag row 5
-%
-  \LineMiddle{24min +}{min = 2h}
-& \LineMiddle{13h}{min}
-& \LineMiddle{2min\textminus}{s = 87s}
+   \ClockConvert{4:29} 				& \TextEqual{4h\textminus 28min}{min} 	& \FindDiv{7}{5}
+\\ \EuroPlus{31,29}{200} 			& \PlusMiddle{86s}{s = 3min} 			& \ColonMiddle{4:06 bis 4:53 Uhr}{min}
+\\ \Round{R.a.ZT! 84 076} 			& \MathResult{100\ 000-80} 				& \ColonMiddle{eine dreiviertel Minute}{s}
+\\ \TextEqual{12 Jahre}{Monate} 	& \MinusMiddle{4min}{s = 150s}			& \TextEqual{4min 58s}{s}
+\\ \PlusMiddle{24min}{min = 2h} 	& \TextEqual{13h}{min} 					& \MinusMiddle{2min}{s = 87s}
 }}
 
 \newcommand{\jauseWednesday}{\jauseday{
-% Mittwoch row 1
-%
-  \EuroPlus{52,68}{200}
-& \FindDiv{5}{2}
-& \LinesMiddle{81 Tage=}{Wochen}{Tage}
-%
-\\% Mittwoch row 2
-%
-  \LineMiddle{Rechteck:}{Symetrieachsen}
-& \EuroMinusResult{8}{3,98}
-& \LinesMiddle{9H\textminus 3H 7Z=}{H}{Z}
-%
-\\% Mittwoch row 3
-%
-  \FindMul{720}
-& \MathResult{700-140-8}
-& \FoderK{Rechteck}
-%%
-\\% Mittwoch row 4
-%
-  \LineMiddle{eine dreiviertel Stunde:}{min}
-& \LineMiddle{767g+}{g = 5kg}
-& \EuroMinusResult{1}{0,91}
-%
-\\% Mittwoch row 5
-%
-  \FoderK{Kugel}
-& \Halbiere{650}
-& \LineMiddle{7dag 6kg =}{dag}
+   \EuroPlus{52,68}{200} 						& \FindDiv{5}{2} 				& \LinesMiddle{81 Tage=}{Wochen}{Tage}
+\\ \ColonMiddle{Rechteck}{Symetrieachsen} 		& \EuroMinusResult{8}{3,98} 	& \LinesMiddle{9H\textminus 3H 7Z =}{H}{Z}
+\\ \FindMul{720} 								& \MathResult{700-140-8} 		& \FoderK{Rechteck}
+\\ \ColonMiddle{eine dreiviertel Stunde}{min} 	& \PlusMiddle{767g}{g = 5kg} 	& \EuroMinusResult{1}{0,91}
+\\ \FoderK{Kugel} 								& \Halbiere{650} 				& \TextEqual{7dag 6kg}{dag}
 }}
 
 \newcommand{\jauseThursday}{\jauseday{
-% Donnerstag row 1
-%
-  \FoderK{Kreis}
-& \LineMiddle{34g +}{g = 8kg}
-& \LineMiddle{Würfel:}{quadratische Flächen}
-%
-\\% Donnerstag row 2
-%
-  \FindDiv{6}{4}
-& \LineMiddle{16dag +}{dag =1 kg}
-& \EuroPlus{31,74}{500}
-%
-\\% Donnerstag row 3
-%
-  \FindDividend{6}{8}{5}
-& \LineMiddle{2kg\textminus}{g = 560g}
-& \MathResult{9\cdot 70+4\cdot 4}
-%
-\\% Donnerstag row 4
-%
-  \Round{R.a.H! 82 765}
-& \LineMiddle{2kg\textminus}{dag = 49dag}
-& \Edm{5 456cm}
-%
-\\% Donnerstag row 5
-%
-  \FoderK{Zylinder}
-& \LineMiddle{Würfel:}{Kanten}
-& \FoderK{Kegel}
+   \FoderK{Kreis} 			& \PlusMiddle{34g}{g = 8kg} 		& \ColonMiddle{Würfel}{quadratische Flächen}
+\\ \FindDiv{6}{4} 			& \PlusMiddle{16dag}{dag =1 kg} 	& \EuroPlus{31,74}{500}
+\\ \FindDividend{6}{8}{5} 	& \MinusMiddle{2kg}{g = 560g} 		& \MathResult{9\cdot 70+4\cdot 4}
+\\ \Round{R.a.H! 82 765}  	& \MinusMiddle{2kg}{dag = 49dag} 	& \Edm{5 456cm}
+\\ \FoderK{Zylinder} 		& \ColonMiddle{Würfel}{Kanten} 		& \FoderK{Kegel}
 }}
 
 \newcommand{\jauseFriday}{\jauseday{
-% Friday row 1
-  \TextEqual{15h}{min}
-& \LineMiddle{57s +}{s = 3min}
-& \TextEqual{14h}{min}
-\\% Friday row 2
-  \TextEqual{drei Wochen}{Tage}
-& \LineFront{s + 26s = 1min}
-& \LineMiddle{27min +}{min = 2h}
-\\% Friday row 3
-  \ClockConvert{6:07}
-& \EuroPlus{22,35}{400}
-& \LineMiddle{12:45 bis 13:11 Uhr}{min}
-\\% Friday row 4
-  \LineMiddle{26min +}{min = 2h}
-& \LineMiddle{1min \textminus}{s = 25s}
-& \TextEqual{eine Viertelstunde}{min}
-\\% Friday row 5
-  \FindDiv{4}{5}
-& \Round{R.a.ZT! 65 096}
-& \MathResult{60 000-13}
+   \TextEqual{15h}{min}           	& \PlusMiddle{57s}{s = 3min}    	& \TextEqual{14h}{min}
+\\ \TextEqual{drei Wochen}{Tage}  	& \LineFront{s + 26s = 1min}    	& \PlusMiddle{27min}{min = 2h}
+\\ \ClockConvert{6:07}         		& \EuroPlus{22,35}{400}         	& \ColonMiddle{12:45 bis 13:11 Uhr}{min}
+\\ \PlusMiddle{26min}{min = 2h} 	& \MinusMiddle{1min}{s = 25s}		& \ColonMiddle{eine Viertelstunde}{min}
+\\ \FindDiv{4}{5}                 	& \Round{R.a.ZT! 65 096}    & \MathResult{60 000-13}
 }}
 
 \newcommand{\jauseVSpace}{}
 
 \begin{document}
-%\section*{\uline{2cm} . Rechenjause}
 \noindent
 {\Large \uline{1.5cm} . RECHENJAUSE \hfill Name: \uline{5cm} }
 \vspace{5mm}
