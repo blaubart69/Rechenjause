@@ -20,7 +20,6 @@
 \newcommand{\EURO}{\text{\euro}}
 \newcommand{\CENT}{ct}
 
-%\newcommand{\reverseconcat}[3]{#3#2#1} % version 1
 \newcommand{\FoderK}[1]{#1: F oder K}
 \newcommand{\Halbiere}[1]{Halbiere #1!\uu}
 
@@ -36,18 +35,27 @@
 \newcommand{\MathResult}[1]{$#1=$\uu}
 \newcommand{\MathEqual}[2]{$#1=$\uu}
 \newcommand{\LineEnd}[1]{#1\uu}
+\newcommand{\LineFront}[1]{\uu #1}
 \newcommand{\LineMiddle}[2]{#1\uu#2}
 \newcommand{\LinesMiddle}[3]{#1\uu#2\uu#3}
 \newcommand{\Round}[1]{#1 $\sim$\uu}
+\newcommand{\ClockConvert}[1]{\LineMiddle{#1 Uhr /}{Uhr}}
 
-\begin{document}
-\section*{\uline{2cm} . Rechenjause}
-\vspace{0.5cm}
-\noindent
-\setlength{\extrarowheight}{3pt}
-\begin{tabularx}{\textwidth}{ @{} X X X @{} }
-Datum: \hrulefill
+\newcommand{\jauseday}[1]{
+	\noindent
+	\setlength{\extrarowheight}{3pt}
+	\begin{tabularx}{\textwidth}{ @{} X X X @{} }
+	\uline{3cm}
+	\\#1
+	\end{tabularx}
 \\
+\begin{flushright}
+\uline{1cm}
+\end{flushright}
+
+}
+
+\newcommand{\jauseMonday}{\jauseday{
 %
 %   Montag - row 1
 %
@@ -77,12 +85,13 @@ Datum: \hrulefill
   \MathResult{5\cdot3+300-90}
 & \TextEqual{4g 98dag}{g}
 & \LineMiddle{382dag +}{dag = 9kg}
-\\
-\\ Datum: \hrulefill
+}}
+
+\newcommand{\jauseTuesday}{\jauseday{
 %
-\\% Dienstag row 1
+% Dienstag row 1
 %
-  \LineMiddle{4:29 Uhr /}{Uhr}
+  \ClockConvert{4:29}
 & \TextEqual{4h\textminus 28min}{min}
 & \FindDiv{7}{5}
 %
@@ -109,10 +118,10 @@ Datum: \hrulefill
   \LineMiddle{24min +}{min = 2h}
 & \LineMiddle{13h}{min}
 & \LineMiddle{2min\textminus}{s = 87s}
-\\
-\\ Datum: \hrulefill
-%
-\\% Mittwoch row 1
+}}
+
+\newcommand{\jauseWednesday}{\jauseday{
+% Mittwoch row 1
 %
   \EuroPlus{52,68}{200}
 & \FindDiv{5}{2}
@@ -141,10 +150,10 @@ Datum: \hrulefill
   \FoderK{Kugel}
 & \Halbiere{650}
 & \LineMiddle{7dag 6kg =}{dag}
-\\
-\\ Datum: \hrulefill
-%
-\\% Donnerstag row 1
+}}
+
+\newcommand{\jauseThursday}{\jauseday{
+% Donnerstag row 1
 %
   \FoderK{Kreis}
 & \LineMiddle{34g +}{g = 8kg}
@@ -161,7 +170,55 @@ Datum: \hrulefill
   \FindDividend{6}{8}{5}
 & \LineMiddle{2kg\textminus}{g = 560g}
 & \MathResult{9\cdot 70+4\cdot 4}
-\end{tabularx}
+%
+\\% Donnerstag row 4
+%
+  \Round{R.a.H! 82 765}
+& \LineMiddle{2kg\textminus}{dag = 49dag}
+& \Edm{5 456cm}
+%
+\\% Donnerstag row 5
+%
+  \FoderK{Zylinder}
+& \LineMiddle{Würfel:}{Kanten}
+& \FoderK{Kegel}
+}}
 
+\newcommand{\jauseFriday}{\jauseday{
+% Friday row 1
+  \TextEqual{15h}{min}
+& \LineMiddle{57s +}{s = 3min}
+& \TextEqual{14h}{min}
+\\% Friday row 2
+  \TextEqual{drei Wochen}{Tage}
+& \LineFront{s + 26s = 1min}
+& \LineMiddle{27min +}{min = 2h}
+\\% Friday row 3
+  \ClockConvert{6:07}
+& \EuroPlus{22,35}{400}
+& \LineMiddle{12:45 bis 13:11 Uhr}{min}
+\\% Friday row 4
+  \LineMiddle{26min +}{min = 2h}
+& \LineMiddle{1min \textminus}{s = 25s}
+& \TextEqual{eine Viertelstunde}{min}
+\\% Friday row 5
+  \FindDiv{4}{5}
+& \Round{R.a.ZT! 65 096}
+& \MathResult{60 000-13}
+}}
+
+\newcommand{\jauseVSpace}{}
+
+\begin{document}
+%\section*{\uline{2cm} . Rechenjause}
+\noindent
+{\Large \uline{1.5cm} . RECHENJAUSE \hfill Name: \uline{5cm} }
+\vspace{5mm}
+
+\jauseMonday{}    \jauseVSpace{}
+\jauseTuesday{}   \jauseVSpace{}
+\jauseWednesday{} \jauseVSpace{}
+\jauseThursday{}  \jauseVSpace{}
+\jauseFriday{}
 
 \end{document}
