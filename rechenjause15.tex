@@ -1,14 +1,8 @@
 \documentclass[12pt,a4paper,oneside]{extarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
 \usepackage{tabularx}
-\usepackage{eurosym}
-\usepackage{amsmath, amssymb}
-
-\usepackage{mathpazo}
-\usepackage{antpolt}
-
-%\usepackage{antpolt}
-%\usepackage{euler}
-
 
 \usepackage[a4paper,left=1.5cm,right=1.5cm,top=2cm,bottom=2cm,
   %includehead,
@@ -18,16 +12,17 @@
 
 % FONT: Source Sans Pro
 %\usepackage[default]{sourcesanspro}
-%\usepackage[T1]{fontenc}
 % FONT: Source Sans Pro
 
-\usepackage[T1]{fontenc}
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+%\usepackage[default]{comicneue}
+
 
 \newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}% Fill this blank
 %\newcommand{\uu}{\uline{1cm}\,}
 \newcommand{\uu}{ \hrulefill\ }
-\newcommand{\EURO}{\text{\euro}}
+%\newcommand{\EURO}{\text{\euro}}
+\newcommand{\EURO}{€}
 \newcommand{\CENT}{ct}
 
 \newcommand{\FoderK}[1]{#1: F oder K}
@@ -45,12 +40,13 @@
 \newcommand{\TextEqual}[2]{#1 =\uu #2}
 \newcommand{\TextResult}[1]{#1 =\uu}
 \newcommand{\MathResult}[1]{$\mathsf{#1=}$\uu}
+%\newcommand{\MathResult}[1]{$#1=$\uu}
 %\newcommand{\MathEqual}[2]{$#1=$\uu}
 \newcommand{\LineEnd}[1]{#1\uu}
 \newcommand{\LineFront}[1]{\uu #1}
 \newcommand{\LineMiddle}[2]{#1\uu#2}
 \newcommand{\LinesMiddle}[3]{#1\uu#2\uu#3}
-\newcommand{\Round}[1]{#1 $\sim$\uu}
+\newcommand{\Round}[2]{#1! $\mathsf{#2\sim}$\uu}
 \newcommand{\ClockConvert}[1]{\LineMiddle{#1 Uhr /}{Uhr}}
 \newcommand{\PlusMiddle}[2]{#1 +\uu#2}
 \newcommand{\MinusMiddle}[2]{#1 \textminus\uu#2}
@@ -71,17 +67,18 @@
 \newcommand{\jauseMonday}{\jauseday{
    \FoderK{Pyramide} 						& \Halbiere{560} 					& \EuroPlus{11,76}{100}
 \\ \TextEqual{eine halbe Stunde}{min} 		& \Edm{460dag} 						& \ColonMiddle{Quader}{Flächen}
-\\ \TextEqual{9dm 2mm}{mm} 					& \FindDiv{9}{6}					& \ColonMiddle{Quader}{Ecken}
+\\ \TextEqual{9dm 2mm}{mm} 				& \FindDiv{9}{6}					& \ColonMiddle{Quader}{Ecken}
 \\ \MathResult{770:2} 						& \TextEqual{3kg\textminus 27g}{g}	& \FindMul{420}
-\\ \MathResult{5\cdot3+300-90} 				& \TextEqual{4g 98dag}{g} 			& \PlusMiddle{382dag}{dag = 9kg}
+\\ \MathResult{5\cdot3+300-90} 			& \TextEqual{4g 98dag}{g} 			& \PlusMiddle{382dag}{dag = 9kg}
+%\\ \TextEqual{5 $\mathpunct{\cdot}$ 3 $\mathpunct{+}$ 300 $\mathpunct{-}$ 90}
 }}
 
 \newcommand{\jauseTuesday}{\jauseday{
-   \ClockConvert{4:29} 				& \TextEqual{4h\textminus 28min}{min} 	& \FindDiv{7}{5}
-\\ \EuroPlus{31,29}{200} 			& \PlusMiddle{86s}{s = 3min} 			& \ColonMiddle{4:06 bis 4:53 Uhr}{min}
-\\ \Round{R.a.ZT! 84 076} 			& \MathResult{100\ 000-80} 				& \ColonMiddle{eine dreiviertel Minute}{s}
-\\ \TextEqual{12 Jahre}{Monate} 	& \MinusMiddle{4min}{s = 150s}			& \TextEqual{4min 58s}{s}
-\\ \PlusMiddle{24min}{min = 2h} 	& \TextEqual{13h}{min} 					& \MinusMiddle{2min}{s = 87s}
+   \ClockConvert{4:29} 				& \TextEqual{4h $\mathpunct{-}$ 28min}{min} 	& \FindDiv{7}{5}
+\\ \EuroPlus{31,29}{200} 			& \PlusMiddle{86s}{s = 3min} 					& \ColonMiddle{4:06 bis 4:53 Uhr}{min}
+\\ \Round{R.a.ZT}{84\,076} 			& \MathResult{100\,000-80} 					& \ColonMiddle{eine dreiviertel Minute}{s}
+\\ \TextEqual{12 Jahre}{Monate} 	& \MinusMiddle{4min}{s = 150s}					& \TextEqual{4min 58s}{s}
+\\ \PlusMiddle{24min}{min = 2h} 	& \TextEqual{13h}{min} 							& \MinusMiddle{2min}{s = 87s}
 }}
 
 \newcommand{\jauseWednesday}{\jauseday{
@@ -96,7 +93,7 @@
    \FoderK{Kreis} 			& \PlusMiddle{34g}{g = 8kg} 		& \ColonMiddle{Würfel}{Flächen}
 \\ \FindDiv{6}{4} 			& \PlusMiddle{16dag}{dag =1 kg} 	& \EuroPlus{31,74}{500}
 \\ \FindDividend{6}{8}{5} 	& \MinusMiddle{2kg}{g = 560g} 		& \MathResult{9\cdot 70+4\cdot 4}
-\\ \Round{R.a.H! 82 765}  	& \MinusMiddle{2kg}{dag = 49dag} 	& \Edm{5 456cm}
+\\ \Round{R.a.H}{82\,765}  	& \MinusMiddle{2kg}{dag = 49dag} 	& \Edm{5 456cm}
 \\ \FoderK{Zylinder} 		& \ColonMiddle{Würfel}{Kanten} 		& \FoderK{Kegel}
 }}
 
@@ -105,20 +102,21 @@
 \\ \TextEqual{drei Wochen}{Tage}  	& \LineFront{s + 26s = 1min}    	& \PlusMiddle{27min}{min = 2h}
 \\ \ClockConvert{6:07}         		& \EuroPlus{22,35}{400}         	& \ColonMiddle{12:45 bis 13:11 Uhr}{min}
 \\ \PlusMiddle{26min}{min = 2h} 	& \MinusMiddle{1min}{s = 25s}		& \ColonMiddle{eine Viertelstunde}{min}
-\\ \FindDiv{4}{5}                 	& \Round{R.a.ZT! 65 096}    & \MathResult{60 000-13}
+\\ \FindDiv{4}{5}                 	& \Round{R.a.ZT}{65\,096}    & \MathResult{60 000-13}
 }}
 
-\newcommand{\jauseVSpace}{}
+\newcommand{\jauseVSpace}{\vfill}
 \thispagestyle{empty}
+
 \begin{document}
 \noindent
 \setlength{\tabcolsep}{12pt}
 \begin{tabularx}{\textwidth}{ @{} X X X @{} }
 	\uu {\Large . Rechenjause} & &  \Large{Name:} \uu
 \end{tabularx}
-%{\Large \uline{1.5cm} . RECHENJAUSE \hfill Name: \uline{5cm} }
 \vspace{5mm}
 
+				   \jauseVSpace{}
 \jauseMonday{}    \jauseVSpace{}
 \jauseTuesday{}   \jauseVSpace{}
 \jauseWednesday{} \jauseVSpace{}
